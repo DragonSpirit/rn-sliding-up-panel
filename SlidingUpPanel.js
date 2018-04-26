@@ -196,7 +196,7 @@ class SlidingUpPanel extends React.Component {
       }
 
       if (!this._requestCloseTriggered) {
-        this.props.onRequestClose()
+        this.props.onRequestClose(false)
       }
       return
     }
@@ -263,7 +263,7 @@ class SlidingUpPanel extends React.Component {
         pointerEvents="box-only"
         ref={c => (this._backdrop = c)}
         onTouchStart={() => this._flick.stop()}
-        onTouchEnd={() => this.props.onRequestClose()}
+        onTouchEnd={() => this.props.onRequestClose(true)}
         style={[styles.backdrop, {opacity: backdropOpacity}]}
       />
     )
